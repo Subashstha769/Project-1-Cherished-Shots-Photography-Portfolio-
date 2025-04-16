@@ -92,20 +92,22 @@ if (isset($_POST['login'])) {
           </ul>
           <!-- -----------------ADMIN PANEL BUTTON HERE ------------------- -->
 
-        <!-- Admin Panel Button -->
-<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-    <button class="btn btn-info mx-2" onclick="window.location.href='home.php?click=Adminpanel'">Admin Panel</button>
-<?php endif; ?>
+
 
 
           <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
             <span class="navbar-text">Welcome, <?php echo $_SESSION['email']; ?></span>
             <button class="btn btn-danger mx-2" onclick="window.location.href='logout.php'">Logout</button>
-            
+
 
           <?php else: ?>
             <button class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#login-modal">Login</button>
             <button class="btn btn-outline-success mx-2" data-bs-toggle="modal" data-bs-target="#signup-modal">Sign Up</button>
+          <?php endif; ?>
+
+          <!-- Admin Panel Button -->
+          <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+            <button class="btn btn-info mx-2" onclick="window.location.href='home.php?click=Adminpanel'">Admin Panel</button>
           <?php endif; ?>
         </div>
       </div>
